@@ -12,7 +12,7 @@ Organização dos diretorios:
 - /detection_algorithm
 - /doc
 - [Paper no Overleaf](https://www.overleaf.com/read/qsrfmnhvzrdv#1fb1a9)
-- [Tabela de pessos testados](https://docs.google.com/spreadsheets/d/1qQWjE0bRPcIuYDuA-tXGYIFENlgSXxBJwYTWF7itZHY/edit?usp=sharing)
+- [Tabela de pesos testados](https://docs.google.com/spreadsheets/d/1qQWjE0bRPcIuYDuA-tXGYIFENlgSXxBJwYTWF7itZHY/edit?usp=sharing)
 - [Notas](https://docs.google.com/document/d/1o4Y88ro4Ai_DdEM-NswhRqFp_U7o71gf_jGCvHdvslA/edit?usp=drive_link)
 
 > Recomenda-se que os scripts de treino, presentes no diretorio /training_algorithm, sejam imprtados para o ambiente no Colab.
