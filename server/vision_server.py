@@ -4,12 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-def detect_currencies(image_path):
-    # Aqui você deve implementar a lógica de detecção de cédulas usando o modelo YOLO
-    # Substitua este exemplo pela implementação real
-
-    # Exemplo de detecção fictícia
-    image = cv2.imread(image_path)
+def detect_currencies(image):
     # Lógica de detecção usando YOLO
     # ...
 
@@ -25,14 +20,10 @@ def process_image():
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'})
 
-    image = request.files['image']
-
-    # Salva a imagem temporariamente no servidor
-    temp_image_path = '/tmp/temp_image.jpg'  # Você pode ajustar o local e nome do arquivo conforme necessário
-    image.save(temp_image_path)
+    image = cv2.imdecode(np.frombuffer(request.files['image'].read(), np.uint8), cv2.IMREAD_UNCHANGED)
 
     # Faça a detecção de cédulas usando o modelo YOLO
-    detected_currencies, total_value = detect_currencies(temp_image_path)
+    detected_currencies, total_value = detect_currencies(image)
 
     # Envia a resposta para o aplicativo
     response = {
