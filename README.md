@@ -24,7 +24,7 @@ Importe o projeto do Roboflow por meio do seguinte codigo:
 from roboflow import Roboflow
 rf = Roboflow(api_key="sua-key")
 project = rf.workspace("vision-fbche").project("cedulas-de-real-brasileiro")
-dataset = project.version(2).download("yolov7")
+dataset = project.version(3).download("yolov7")
 ~~~
 
 # Referencias:
