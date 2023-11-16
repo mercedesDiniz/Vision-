@@ -1,0 +1,6 @@
+# ignora os arquivos com extensões 
+#.gitignore
+.venv
+# ignora quaisquer diretórios chamados :
+detection_algorithm/yolov7/
+detection_algorithm/yolo7_environment/
