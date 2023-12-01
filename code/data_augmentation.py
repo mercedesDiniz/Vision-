@@ -19,10 +19,11 @@ def apply_brightness_augmentation(input_path, output_path):
         img = imageio.imread(img_path)
 
         # Ajuste o brilho usando skimage
-        bright_img = exposure.adjust_gamma(img, gamma=0.6)
+        g = 0.6
+        bright_img = exposure.adjust_gamma(img, gamma=g)
 
         # Salve a imagem com brilho aumentado na pasta de saída
-        imageio.imsave(os.path.join(output_path, f"{img_file[:-5]}_brightness_aug.png"), img_as_ubyte(bright_img))
+        imageio.imsave(os.path.join(output_path, f"{img_file[:-5]}_brightness_aug_{g}.png"), img_as_ubyte(bright_img))
 
 def apply_saturation_augmentation(input_path, output_path):
     # Certifique-se de que o diretório de saída existe
@@ -43,17 +44,18 @@ def apply_saturation_augmentation(input_path, output_path):
         hsv = color.rgb2hsv(img)
 
         # Ajuste a saturação
-        hsv[:, :, 1] = hsv[:, :, 1] * 1.5  # Valor maior para aumentar a saturação
+        s = 1.5 # Valor maior para aumentar a saturação
+        hsv[:, :, 1] = hsv[:, :, 1] * s   
 
         # Converta de volta para RGB
         img_saturated = color.hsv2rgb(hsv)
 
         # Salve a imagem saturada na pasta de saída
-        imageio.imsave(os.path.join(output_path, f"{img_file[:-5]}_saturated_aug.png"), img_as_ubyte(img_saturated))
+        imageio.imsave(os.path.join(output_path, f"{img_file[:-5]}_saturated_aug_{s}.png"), img_as_ubyte(img_saturated))
 
 # Exemplo de uso
-input_folder = "/content/dataset"
-output_folder = "/content/output"
+input_folder = "dataset"
+output_folder = "output"
 
 # Aplica a alteração de brilho
 apply_brightness_augmentation(input_folder, output_folder)
